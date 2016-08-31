@@ -1,0 +1,41 @@
+package com.ylmall.at.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ylmall.at.dao.OrderInfoDao;
+import com.ylmall.at.dao.StorkDao;
+import com.ylmall.at.service.DRPValidateService;
+import com.ylmall.at.tobject.TargetShop;
+
+@Service("DRPValidateService")
+
+public class DRPValidateServiceImpl implements DRPValidateService{
+	
+	private StorkDao storkDao;
+	private OrderInfoDao orderInfoDao;
+	
+	/**
+	 * 传入参数:矩阵筛选结果
+	 * 循环list
+	 * 1.调用DRP接口,传入门店,Sku,数据库查询库存表对应门店,sku的数量
+	 * 2.若DRP小于库存则更新库存表，插入记录到库存变化明细表，否则不作操作
+	 * 3.数据库查询订单明细表对应sku,orderId的数量，比较大小
+	 * 4.若DRP小于订单数量则orderId为null，否则生成orderId
+	 * 传出不合格的sku列表
+	 */
+	public List<String> Validate(List<TargetShop> targetShopList) {
+		// TODO Auto-generated method stub
+		List<String> missedSku = new ArrayList<String>();
+		
+		return missedSku;
+	}
+	
+	
+	
+	public DRPValidateServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.OrderStateMapper">
+
+<insert id="insertOrderState" parameterType="com.ylmall.at.tobject.Order">
+	insert into OrderState(orderId,orderState)
+	values(#{orderId,jdbcType=VARCHAR},#{orderState,jdbcType=VARCHAR})
+</insert>
+
+ 	<!-- for each  -->
+<insert id="insertResultState" parameterType="com.ylmall.at.tobject.ResultShop">
+	insert into OrderState(orderId,orderState)
+	values(
+		<foreach collection=""></foreach>
+	)
+
+</insert>
+
+<update id="UpdateOrderState" parameterType="com.ylmall.at.tobject.Order">
+	update OrderState
+	set orderState = #{orderState,jdbcType=VARCHAR}
+	where orderId = #{orderId,jdbcType=VARCHAR}
+</update>
+
+</mapper>

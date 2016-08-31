@@ -1,0 +1,175 @@
+/**
+ * 
+ */
+package com.ylmall.at.service.Impl;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.stereotype.Service;
+
+import com.ylmall.at.service.MatrixService;
+import com.ylmall.at.tobject.SelectedShop;
+
+
+
+/**
+ * At.com.ylmall.at.service.Impl
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016上午11:53:43
+ */
+@Service("matrixService")
+public class MatrixServiceImpl implements MatrixService{
+
+	private   int[][] matrix;
+	
+	private  Object[] skuArray ;
+	private  Object[] shopArray ;
+
+	private  int[] ReposRow;
+	private  int[] ReposColumn;
+	
+	private  boolean ReposState;
+	
+	public int[][] getMatrix() {
+		return matrix;
+	}
+
+	public void setMatrix(int[][] matrix) {
+		this.matrix = matrix;
+	}
+
+	public Object[] getSkuArray() {
+		return skuArray;
+	}
+
+	public void setSkuArray(Object[] skuArray) {
+		this.skuArray = skuArray;
+	}
+
+	public Object[] getShopArray() {
+		return shopArray;
+	}
+
+	public void setShopArray(Object[] shopArray) {
+		this.shopArray = shopArray;
+	}
+
+	public int[] getReposRow() {
+		return ReposRow;
+	}
+
+	public void setReposRow(int[] reposRow) {
+		ReposRow = reposRow;
+	}
+
+	public int[] getReposColumn() {
+		return ReposColumn;
+	}
+
+	public void setReposColumn(int[] reposColumn) {
+		ReposColumn = reposColumn;
+	}
+
+	public boolean isReposState() {
+		return ReposState;
+	}
+
+	public void setReposState(boolean reposState) {
+		ReposState = reposState;
+	}
+
+
+	/**
+	 * @param shopList
+	 * TODO 初始化并输出矩阵
+	 */
+	public void initMatrix(List<SelectedShop> shopList) {
+			
+			 Set<String> skuNum = new HashSet<String>();
+			 Set<String> shopNum = new HashSet<String>();
+				for(SelectedShop param :shopList) {
+					skuNum.add(param.getSku());
+					shopNum.add(param.getShopCode());
+				}
+				int row;
+				int column;
+				
+				row=skuNum.size();
+				column=shopNum.size();
+				
+				skuArray =skuNum.toArray();
+				shopArray = shopNum.toArray();
+				
+				ReposRow = new int[row];
+				ReposColumn = new int[column];
+				
+				//TODO 矩阵赋值
+				matrix = new int[row][column];
+				for(SelectedShop param :shopList) {
+					int i,j;
+					for(i=0;i<row;i++) {
+						if(skuArray[i].toString().equals(param.getSku())) {
+							break;
+						}
+					}
+					
+					for(j=0;j<column;j++) {
+						if(shopArray[j].toString().equals(param.getShopCode())) {
+							break;
+						}
+					}
+					matrix[i][j] = 1;
+				}
+				//如果有5号仓
+				if(shopNum.contains("Repos"))
+				{
+					ReposFun();
+				}
+				
+				//TODO 输出结果
+			for(int i=0;i<column;i++) {
+					System.out.print("\t"+shopArray[i]);
+				}
+				System.out.println("");
+				for(int i=0;i<row;i++) {
+					System.out.print(skuArray[i]+"\t");
+					for(int j=0;j<column;j++) {
+						System.out.print("["+matrix[i][j]+"]\t");
+					}
+					System.out.println("");
+				}
+			
+		
+	}
+	
+	//置5号仓忽略数组(非外部调用选项--private)
+	private  void ReposFun(){
+					ReposState = true;
+					for(int i=0;i<shopArray.length;i++)
+					{
+						//找到5号仓后处理完后跳出循环
+						if(shopArray[i].equals("Repos"))
+						{
+							ReposColumn[i]=-1;
+							for(int j=0;j<skuArray.length;j++)
+							{
+								if(matrix[j][i]==1)
+									ReposRow[j]=-1;
+							}
+							break;
+						}
+						
+					}
+				}
+	
+
+
+
+	public MatrixServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

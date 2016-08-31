@@ -1,0 +1,57 @@
+package com.ylmall.at.model;
+
+import java.util.Date;
+
+/**
+ * @description TODO
+ * @author Administrator
+ * @date 2016年8月11日下午2:40:43
+ * @version
+ */
+public class StorkChange {
+
+	/**
+	 * 库存明细变化表
+	 */
+	private String shopCode;
+	private String sku;
+	private int changes;
+	private Date time;
+	
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public StorkChange() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getShopCode() {
+		return shopCode;
+	}
+
+	public void setShopCode(String shopCode) {
+		this.shopCode = shopCode;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public int getChanges() {
+		return changes;
+	}
+
+	public void setChanges(int changes) {
+		this.changes = changes;
+	}
+
+}

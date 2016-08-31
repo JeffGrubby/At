@@ -1,0 +1,42 @@
+package com.ylmall.at.model;
+/**
+ * @description TODO
+ * @author Administrator
+ * @date 2016年8月11日下午2:40:24
+ * @version
+ */
+public class Shop {
+
+	/**
+	 * 门店信息表
+	 */
+	private String shopCode;
+	private String address;
+	
+	public Shop() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getShopCode() {
+		return shopCode;
+	}
+
+
+	public void setShopCode(String shopCode) {
+		this.shopCode = shopCode;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+
+
+}

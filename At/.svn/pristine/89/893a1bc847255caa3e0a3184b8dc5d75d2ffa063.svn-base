@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+	<insert id="insertStorkChange" parameterType="com.ylmall.at.tobject.ResultShop">
+		insert into StorkChange(shopCode,sku,change,time)
+		values
+		<foreach collection="childOrderList" item="childItem">		
+			<foreach collection="childItem.childOrderList" item="Item" separator=",">
+			(#{childItem.shopCode},#{Item.sku},#{Item.amount},#{childItem.time})
+			</foreach>
+	    </foreach>
+	</insert>
+
+</mapper>

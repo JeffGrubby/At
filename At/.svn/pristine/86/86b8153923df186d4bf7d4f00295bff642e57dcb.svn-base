@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package com.ylmall.at.dao;
+
+import java.util.List;
+
+import com.ylmall.at.model.Stork;
+import com.ylmall.at.tobject.SelectedShop;
+
+/**
+ * At.com.ylmall.at.dao
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016上午10:08:23
+ */
+public interface StorkDao {
+	//更新库存表
+		int UpdateStork(Stork stork);
+	/**全体筛选(首次拆单)*/
+		List<SelectedShop> selectSkuShop();
+	/**排除特定门店再筛选(重新拆单)*/
+		List<SelectedShop> reselectSkuShop(String shopCode);
+	/**查询库存表中对应sku的数量*/
+		int selectAmount(String sku,String shopCode);
+
+	
+}

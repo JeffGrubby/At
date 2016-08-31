@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.ylmall.at.dao;
+
+import com.ylmall.at.tobject.ResultShop;
+
+/**
+ * At.com.ylmall.at.dao
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016上午10:08:32
+ */
+public interface StorkChangeDao {
+	//插入库存变化明细表
+	int insertStorkChange(ResultShop resultShop);
+}

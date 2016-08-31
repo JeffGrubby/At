@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.ylmall.at.dao;
+
+import com.ylmall.at.tobject.Order;
+
+/**
+ * At.com.ylmall.at.dao
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016ионГ10:07:59
+ */
+public interface ShopDao {
+	
+	String selecShop(Order order);
+}

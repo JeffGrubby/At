@@ -1,0 +1,213 @@
+package com.ylmall.at.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+import com.ylmall.at.model.SkuNeed;
+import com.ylmall.at.service.MatrixAlgorithmService;
+import com.ylmall.at.tobject.TargetShop;
+import com.ylmall.at.util.ResultUtil;
+
+@Service("matrixAlgorithmService")
+public class MatrixAlgorithmServiceImpl implements MatrixAlgorithmService{
+	private Logger logger = LogManager.getLogger(MatrixAlgorithmServiceImpl.class.getName()); 
+	private  MatrixServiceImpl ma;
+
+	private boolean ReposState ;
+	private boolean rowState = true;
+	
+	/**
+	 * 
+	 */
+	public MatrixAlgorithmServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public MatrixAlgorithmServiceImpl(MatrixServiceImpl ma) {
+		// TODO Auto-generated constructor stub
+		this.ma = ma;
+	}
+	
+	/**
+	* @param matrix
+	* @param ReposRow
+	* @param ReposColumn
+	* @return
+	* TODO 筛选矩阵
+	*/
+	public  List<TargetShop> selectShop(int[][] matrix, int[] ReposRow, int[] ReposColumn) {
+		logger.info("Selecting Shop");
+		TargetShop temp ;
+		SkuNeed skuNeed;
+		List<TargetShop> targetShopList = new ArrayList<TargetShop>();
+		int[] rowIgnore = ReposRow.clone();
+		int[] columnIgnore = ReposColumn.clone();
+		
+		
+		//sku全宇宙无货
+		ResultUtil.addMissedSku(targetShopList, ma, rowIgnore, matrix);
+				
+		//若存在5号仓未被匹配 则写入结果集
+		if(ReposState)
+		{
+			temp = new TargetShop();
+			for(int i=0;i<ReposColumn.length;i++)
+			{
+				//找到5号仓那列就赋值后跳出循环
+				if(ReposColumn[i]==-1)
+				{
+					temp.setShopCode(ma.getShopArray()[i].toString());
+					for(int j=0;j<ReposRow.length;j++)
+						if(matrix[j][i]==1)
+						{	
+							
+							skuNeed = new SkuNeed();
+							skuNeed.setSku(ma.getSkuArray()[i].toString());
+							skuNeed.setAmount(ma.getAmountArray()[i]);
+							temp.getChildOrderList().add(skuNeed);
+							// temp.getSku().add(ma.getSkuArray()[j].toString());	
+						}
+					targetShopList.add(temp);
+					break;
+				}
+			}
+			ReposState = false;
+		}
+		
+		
+		rowState = false ;
+				
+		for(int i=0;i<rowIgnore.length;i++){
+			if(rowIgnore[i]!=-1) {rowState=true;break;}
+			}
+		
+		while(rowState){	
+				rowState=false;
+				int p = sumColum(rowIgnore,columnIgnore);
+				//忽略p列门店
+				columnIgnore[p]=-1;
+				temp = new TargetShop();
+				//填入门店编号
+				temp.setShopCode(ma.getShopArray()[p].toString());
+				for(int i=0;i<rowIgnore.length;i++)
+				{
+					if(rowIgnore[i]!=-1&&matrix[i][p]==1)
+						{
+						//填入门店对应sku
+						skuNeed = new SkuNeed();
+						skuNeed.setSku(ma.getSkuArray()[i].toString());
+						skuNeed.setAmount(ma.getAmountArray()[i]);
+						temp.getChildOrderList().add(skuNeed);
+					//	temp.getSku().add(ma.getSkuArray()[i].toString());
+						rowIgnore[i]=-1;
+						}
+				}
+				
+				targetShopList.add(temp);
+				
+				for(int i=0;i<rowIgnore.length;i++)
+				{
+					if(rowIgnore[i]!=-1) {rowState=true;break;}
+				}
+			}
+		
+	//展示	
+		for(TargetShop target :targetShopList){
+			for(int i =0;i<target.getChildOrderList().size();i++)
+				System.out.println(target.getChildOrderList().get(i).getSku()+"  "+target.getShopCode()+"  "
+						+target.getChildOrderList().get(i).getAmount());	
+			}
+		logger.info("Selecting done");
+		return targetShopList;
+	}
+	
+	/**
+	 * 
+	 * @param ValidatedTargetShop
+	 * @param missedSku
+	 * @return
+	 * TODO 重新筛选前对矩阵置零,修改忽略数组
+	 */
+	public  boolean modify(List<TargetShop> ValidatedTargetShop,List<String> missedSku) {
+		logger.info("Running modify");
+		for(TargetShop targetShop:ValidatedTargetShop){
+			if(targetShop.getOrderId()==null){
+				for(int i= 0;i<ma.getShopArray().length;i++)
+				{
+					if(ma.getShopArray()[i].equals(targetShop.getShopCode()))
+					{
+						for(int j=0;j<ma.getSkuArray().length;j++)	
+							for(int k =0;k<missedSku.size();k++)
+								if(ma.getSkuArray()[j].equals(missedSku.get(k)) )
+								{
+									ma.getMatrix()[j][i] = 0;
+									if(ma.getShopArray()[i].equals("Repos"))
+									{
+										ma.getReposRow()[j] = 0;
+										ReposState = true;
+									}		
+								}
+						break;
+					}
+				}
+				//TODO 输出结果
+				for(int i=0;i<ma.getShopArray().length;i++) {
+						System.out.print("\t"+ma.getShopArray()[i]);
+					}
+					System.out.println("");
+					for(int i=0;i<ma.getSkuArray().length;i++) {
+						System.out.print(ma.getSkuArray()[i]+"\t");
+						for(int j=0;j<ma.getShopArray().length;j++) {
+							System.out.print("["+ma.getMatrix()[i][j]+"]\t");
+						}
+						System.out.println("");
+					}
+					logger.info("modify done");
+	
+				rowState =true;
+				return false;
+			}
+		}
+		rowState = false;
+		return true;
+	}
+
+	
+	/**
+	 * TODO 求划分区域的列项和(非外部调用选项--private)
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	private int sumColum(int[] row,int[] column){
+		int maxNum = 0;
+		int maxColumn = 0;
+		int temp =0;
+		
+		for(int i=0;i<column.length;i++)
+		{	
+			if(column[i]!=-1)
+			{
+				for(int j=0;j<row.length;j++)
+				{
+						if(row[j]!=-1) 
+						 temp += ma.getMatrix()[j][i];
+					
+				}
+				if(temp>maxNum) {maxNum = temp;maxColumn=i;}
+				temp=0;
+				
+			}
+
+		}
+		return maxColumn;
+	}
+
+	
+
+
+}

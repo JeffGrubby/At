@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+package myTest;
+
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.ylmall.at.dao.StockDao;
+import com.ylmall.at.model.Stock;
+import com.ylmall.at.util.ExcelUtil;
+
+/**
+ * At.myTest
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016œ¬ŒÁ4:56:00
+ */
+@RunWith(SpringJUnit4ClassRunner.class)    
+@ContextConfiguration(locations = {"classpath:/spring-mybatis.xml"})
+public class TestMyExcelRead {
+	@Resource
+	private StockDao sDao;
+	
+	@Test
+	public void readExcel(){
+		try {
+			List<Stock> s = (List<Stock>) ExcelUtil.readExcel("E:/test/ø‚¥Ê–≈œ¢.xls");
+			sDao.insertStock(s);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.OrderSplitDao">
+	<insert id="insertOrderSplit" parameterType="com.ylmall.at.tobject.ResultShop">
+	insert into ordersplit(originOrderId,childOrderId)
+	values
+		<foreach collection="childOrderList" item="item" separator=",">
+		(#{originOrderId},#{item.orderId})
+		</foreach>
+	
+	</insert>
+
+</mapper>

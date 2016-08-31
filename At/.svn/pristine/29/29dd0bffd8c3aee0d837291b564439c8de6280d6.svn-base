@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.ShopMapper">
+	<!-- for each -->
+	<select id="selectShop" parameterType="com.ylmall.at.tobject.Order">
+		select shopCode from Shop
+		where address in
+		<foreach collection="originOrderList" item="item" separator="," open="(" close=")">
+		#{item.address}
+		</foreach>
+	</select>
+
+</mapper>

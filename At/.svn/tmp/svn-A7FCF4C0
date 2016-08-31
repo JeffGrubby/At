@@ -1,0 +1,580 @@
+[ERROR] [2016-08-25 15:56:58][myTest.TestMyService]begin
+  [ERROR] [2016-08-25 15:57:32][myTest.TestMyService]begin
+  [ERROR] [2016-08-25 16:01:39][myTest.TestMyService]begin
+  [ERROR] [2016-08-25 16:06:23][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6cd28fa7] to prepare test instance [myTest.TestMyService@614ca7df]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'matrixAlgorithmService' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\service\Impl\MatrixAlgorithmServiceImpl.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl.<init>()
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1076)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1021)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:504)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl.<init>()
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:85)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1069)
+	... 41 more
+Caused by: java.lang.NoSuchMethodException: com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl.<init>()
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.getDeclaredConstructor(Unknown Source)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:80)
+	... 42 more
+[ERROR] [2016-08-25 16:09:52][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6cd28fa7] to prepare test instance [myTest.TestMyService@614ca7df]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'matrixAlgorithmService' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\service\Impl\MatrixAlgorithmServiceImpl.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl.<init>()
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1076)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1021)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:504)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl.<init>()
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:85)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1069)
+	... 41 more
+Caused by: java.lang.NoSuchMethodException: com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl.<init>()
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.getDeclaredConstructor(Unknown Source)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:80)
+	... 42 more
+[ERROR] [2016-08-25 16:12:07][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@471a9022] to prepare test instance [myTest.TestMyService@dc9876b]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shopSelectService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.ylmall.at.tobject.ResultShop] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'giftDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\GiftDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderInfoDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\OrderInfoDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderSplitDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\OrderSplitDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderStateDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\OrderStateDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ruleDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\RuleDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shopDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\ShopDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'storkChangeDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\StorkChangeDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'storkDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\StorkDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:307)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.ylmall.at.tobject.ResultShop] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1100)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:960)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:441)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	... 41 more
+[ERROR] [2016-08-25 16:17:25][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@471a9022] to prepare test instance [myTest.TestMyService@dc9876b]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shopSelectService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.ylmall.at.tobject.ResultShop] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'giftDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\GiftDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderInfoDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\OrderInfoDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderSplitDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\OrderSplitDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderStateDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\OrderStateDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ruleDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\RuleDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shopDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\ShopDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'storkChangeDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\StorkChangeDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'storkDao' defined in file [F:\eclipseWork\At\target\classes\com\ylmall\at\dao\StorkDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:307)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.ylmall.at.tobject.ResultShop] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1100)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:960)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:441)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	... 41 more
+[ERROR] [2016-08-25 16:18:58][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d7758be] to prepare test instance [myTest.TestMyService@2bdd8394]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:681)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:466)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:340)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549)
+	... 40 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:464)
+	... 43 more
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:109)
+	... 45 more
+[ERROR] [2016-08-25 16:21:52][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d7758be] to prepare test instance [myTest.TestMyService@2bdd8394]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:681)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:466)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:340)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549)
+	... 40 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:464)
+	... 43 more
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:109)
+	... 45 more
+[ERROR] [2016-08-25 16:23:49][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d7758be] to prepare test instance [myTest.TestMyService@2bdd8394]
+  java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:681)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [F:\eclipseWork\At\target\classes\com\ylmall\at\mapper\Stork.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:466)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:340)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549)
+	... 40 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.NullPointerException
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:464)
+	... 43 more
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:109)
+	... 45 more
+[ERROR] [2016-08-25 16:24:56][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:24:56][com.ylmall.at.dao.OrderInfoDao.selectSku]==>  Preparing: select sku from orderinfo where amount=? 
+  [DEBUG] [2016-08-25 16:24:56][com.ylmall.at.dao.OrderInfoDao.selectSku]==> Parameters: 1(Integer)
+  [DEBUG] [2016-08-25 16:24:56][com.ylmall.at.dao.OrderInfoDao.selectSku]<==      Total: 1
+  [ERROR] [2016-08-25 16:24:56][myTest.TestMyService]"sku1"
+  [ERROR] [2016-08-25 16:25:37][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:25:38][com.ylmall.at.dao.OrderInfoDao.selectSku]==>  Preparing: select sku from orderinfo where amount=? 
+  [DEBUG] [2016-08-25 16:25:38][com.ylmall.at.dao.OrderInfoDao.selectSku]==> Parameters: 1(Integer)
+  [DEBUG] [2016-08-25 16:25:38][com.ylmall.at.dao.OrderInfoDao.selectSku]<==      Total: 1
+  [ERROR] [2016-08-25 16:25:38][myTest.TestMyService]"sku1"
+  [ERROR] [2016-08-25 16:26:06][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:26:06][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: select shopCode from orderinfo 
+  [DEBUG] [2016-08-25 16:26:06][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: 
+  [DEBUG] [2016-08-25 16:26:06][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 3
+  [ERROR] [2016-08-25 16:26:06][myTest.TestMyService]["s1","s2","s3"]
+  [ERROR] [2016-08-25 16:27:02][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:27:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:27:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: R(String)
+  [DEBUG] [2016-08-25 16:27:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 0
+  [ERROR] [2016-08-25 16:27:02][myTest.TestMyService][]
+  [ERROR] [2016-08-25 16:27:16][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:27:16][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:27:16][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 16:27:16][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 16:27:17][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 16:32:27][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:32:27][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:32:27][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 16:32:27][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 16:32:27][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 16:37:45][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:37:46][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:37:46][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 16:37:46][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 16:37:46][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 16:39:36][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:39:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:39:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 16:39:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 16:39:36][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 16:53:26][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:53:26][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:53:26][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 16:53:26][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 16:53:26][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 16:59:55][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 16:59:56][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 16:59:56][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 16:59:56][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 16:59:56][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:04:45][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:04:45][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:04:45][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:04:45][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:04:45][myTest.TestMyService]["s1"]
+  [DEBUG] [2016-08-25 17:04:45][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==>  Preparing: update OrderState set orderState = ? where orderId = ? 
+  [DEBUG] [2016-08-25 17:04:45][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==> Parameters: ´ý²ð·Ö(String), A(String)
+  [DEBUG] [2016-08-25 17:04:45][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]<==    Updates: 0
+  [ERROR] [2016-08-25 17:07:36][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:07:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:07:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:07:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:07:36][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:16:10][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:16:10][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:16:10][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:16:10][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:16:10][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:16:36][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:16:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:16:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:16:36][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:16:36][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:17:13][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:17:13][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:17:13][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:17:13][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:17:13][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:17:42][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:17:42][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:17:42][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:17:42][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:17:43][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:23:02][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:23:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:23:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:23:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:23:03][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:23:47][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:23:47][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:23:47][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:23:47][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:23:47][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:25:02][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:25:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:25:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:25:02][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:25:02][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:25:50][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:25:51][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:25:51][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:25:51][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:25:51][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:26:38][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:26:39][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:26:39][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:26:39][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:26:39][myTest.TestMyService]["s1"]
+  [ERROR] [2016-08-25 17:28:06][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:28:06][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:28:06][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:28:06][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:28:06][myTest.TestMyService]["s1"]
+  [DEBUG] [2016-08-25 17:28:06][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==>  Preparing: update OrderState set orderState = ? where orderId = ? 
+  [DEBUG] [2016-08-25 17:28:06][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==> Parameters: ´ý²ð·Ö(String), A(String)
+  [DEBUG] [2016-08-25 17:28:06][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]<==    Updates: 0
+  [ERROR] [2016-08-25 17:29:41][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:29:42][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:29:42][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:29:42][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:29:42][myTest.TestMyService]["s1"]
+  [DEBUG] [2016-08-25 17:29:42][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==>  Preparing: update OrderState set orderState = ? where orderId = ? 
+  [DEBUG] [2016-08-25 17:29:42][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==> Parameters: ´ý²ð·Ö(String), A(String)
+  [DEBUG] [2016-08-25 17:29:42][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]<==    Updates: 0
+  [ERROR] [2016-08-25 17:30:21][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:30:22][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:30:22][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:30:22][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:30:22][myTest.TestMyService]["s1"]
+  [DEBUG] [2016-08-25 17:30:22][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==>  Preparing: update OrderState set orderState = ? where orderId = ? 
+  [DEBUG] [2016-08-25 17:30:22][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==> Parameters: ´ý²ð·Ö(String), A(String)
+  [DEBUG] [2016-08-25 17:30:22][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]<==    Updates: 0
+  [ERROR] [2016-08-25 17:31:04][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:31:04][myTest.TestMyService]["s1"]
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==>  Preparing: update OrderState set orderState = ? where orderId = ? 
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==> Parameters: ´ý²ð·Ö(String), A(String)
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]<==    Updates: 0
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderSplitDao.insertOrderSplit]==>  Preparing: insert into OrderSplit(originOrderId,childOrderId) values (?,?) , (?,?) 
+  [DEBUG] [2016-08-25 17:31:04][com.ylmall.at.dao.OrderSplitDao.insertOrderSplit]==> Parameters: A(String), null, A(String), null
+  [ERROR] [2016-08-25 17:31:24][myTest.TestMyService]begin
+  [DEBUG] [2016-08-25 17:31:24][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==>  Preparing: Call selectShop(?) 
+  [DEBUG] [2016-08-25 17:31:24][com.ylmall.at.dao.OrderInfoDao.selectShopCode]==> Parameters: A(String)
+  [DEBUG] [2016-08-25 17:31:24][com.ylmall.at.dao.OrderInfoDao.selectShopCode]<==      Total: 1
+  [ERROR] [2016-08-25 17:31:25][myTest.TestMyService]["s1"]
+  [DEBUG] [2016-08-25 17:31:25][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==>  Preparing: update OrderState set orderState = ? where orderId = ? 
+  [DEBUG] [2016-08-25 17:31:25][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]==> Parameters: ´ý²ð·Ö(String), A(String)
+  [DEBUG] [2016-08-25 17:31:25][com.ylmall.at.dao.OrderStateDao.UpdateOrderState]<==    Updates: 0
+  [DEBUG] [2016-08-25 17:31:25][com.ylmall.at.dao.OrderSplitDao.insertOrderSplit]==>  Preparing: insert into OrderSplit(originOrderId,childOrderId) values (?,?) , (?,?) 
+  [DEBUG] [2016-08-25 17:31:25][com.ylmall.at.dao.OrderSplitDao.insertOrderSplit]==> Parameters: A(String), null, A(String), null
+  

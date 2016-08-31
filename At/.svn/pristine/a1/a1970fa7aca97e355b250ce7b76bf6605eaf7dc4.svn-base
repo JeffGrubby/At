@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package com.ylmall.at.util;
+
+/**
+ * At.com.ylmall.at.util
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016ÏÂÎç1:51:41
+ */
+public class GenerateIdUtil {
+
+	/**
+	 * 
+	 */
+	public GenerateIdUtil() {
+		// TODO Auto-generated constructor stub
+	}
+	//Éú³ÉorderId
+	public String Generate(){
+	
+		return null;
+	}
+}

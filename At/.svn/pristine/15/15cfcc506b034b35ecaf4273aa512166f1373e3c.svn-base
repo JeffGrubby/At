@@ -1,0 +1,104 @@
+package com.ylmall.at.tobject;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import com.ylmall.at.model.SkuNeed;
+
+/**
+ * @author  作者 E-mail: 
+ * @date 创建时间：2016年8月11日 上午11:09:53
+ * @version 1.0
+ * @parameter 
+ * @since 
+ * @return 
+ */
+public class TargetShop {
+
+	/**
+	 * 命中算法筛选后选中的门店
+	 */
+	
+	private String orderId;
+	private String shopCode;
+	private ArrayList<SkuNeed> childOrderList;//sku,amount
+	private String state;
+	private Date time;
+
+	public Date getTime() {
+		return time;
+	}
+
+
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+
+
+	public String getState() {
+		return state;
+	}
+
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+
+	public TargetShop() {
+		// TODO Auto-generated constructor stub
+		childOrderList = new ArrayList<SkuNeed>();
+	}
+	public TargetShop(String shopCode,SkuNeed s) {
+		childOrderList = new ArrayList<SkuNeed>();
+		this.shopCode = shopCode;
+		this.childOrderList.add(s);
+	}
+
+	
+	public String getShopCode() {
+		return shopCode;
+	}
+	
+	public void setShopCode(String shopCode) {
+		this.shopCode = shopCode;
+	}
+
+
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+
+
+	public ArrayList<SkuNeed> getChildOrderList() {
+		return childOrderList;
+	}
+
+
+
+	public void setChildOrderList(ArrayList<SkuNeed> childOrderList) {
+		this.childOrderList = childOrderList;
+	}
+
+
+
+
+
+
+
+
+
+
+}

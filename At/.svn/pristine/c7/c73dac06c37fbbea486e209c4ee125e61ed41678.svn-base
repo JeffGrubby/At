@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.Stork">
+
+
+<!-- 选取对应门店{0},sku{1}的库存数量 -->
+	<select id="selectAmount" resultType="java.lang.Integer">
+		select amount from Stork
+		where
+		shopCode = #{shopCode} and sku=#{sku}
+	</select>
+<!-- DRP检验返回库存对象 更新库存表对应门店,sku的数量 -->
+	<update id="UpdateStork" parameterType="com.ylmall.at.model.Stork">
+		update Stork
+		set amount=#{amount}
+		where shopCode=#{shopCode} and sku=#{sku}
+	</update>
+<!-- 最终返回库存对象 更新库存表对应门店,sku的数量 -->
+	<update id="updateStorkByResult" parameterType="com.ylmall.at.tobject.ResultShop">
+		<foreach collection="childOrderList" item="childItem" >
+			<foreach collection="childItem.childOrderList" item="item">
+			update Stork
+			set amount=#{item.amount}
+			where shopCode=#{childItem.shopCode} and sku=#{item.sku}
+			</foreach>		
+		</foreach>
+	</update>	
+<!-- 首次拆单的筛选 -->
+	<select id="selectSkuShop" parameterType="com.ylmall.at.tobject.Order"
+	 resultType="com.ylmall.at.tobject.SelectedShop" >
+		select sku,shopCode
+		from Stork
+		where  
+		<foreach collection="originOrderList" item="item" separator="or">
+		sku =#{item.sku} and amount>=#{item.amount}
+		</foreach>
+	</select>	
+	
+<!-- 重新拆单 -->
+		<select id="reselectSkuShop" parameterType="java.util.Map"
+		 resultType="com.ylmall.at.tobject.SelectedShop" >
+			select sku,shopCode
+			from Stork
+			where shopCode not in 
+			<foreach collection="shopCode" item="shopItem" open="(" close=")" separator=",">
+				#{shopItem}
+			</foreach>
+			 and
+			<foreach collection="order" item="item" separator="OR"  >
+				sku =#{item.sku} and amount>=#{item.amount}
+			</foreach>
+			
+	</select>	
+</mapper>

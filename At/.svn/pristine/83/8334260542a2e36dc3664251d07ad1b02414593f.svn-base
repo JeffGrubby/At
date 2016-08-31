@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.ShopDao">
+	<!-- 查询同订单城市一致的门店编号 -->
+	<select id="selectShop" parameterType="com.ylmall.at.tobject.Order">
+		select shopCode from Shop
+		where city = #{city}
+	</select>
+
+	<!-- 插入门店 -->
+	<insert id="insertShop" parameterType="java.util.List">
+		insert ignore into shop(SHOP_CODE,ADDRESS,LEVEL)
+		values
+		<foreach collection="list" item="item" separator=",">
+			(#{item.shopCode},#{item.city},1)
+		</foreach>
+	</insert>
+</mapper>

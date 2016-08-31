@@ -1,0 +1,62 @@
+package com.ylmall.at.tobject;
+
+import java.util.ArrayList;
+
+/**
+ * @author  作者 E-mail: 
+ * @date 创建时间：2016年8月11日 上午11:09:53
+ * @version 1.0
+ * @parameter 
+ * @since 
+ * @return 
+ */
+public class TargetShop {
+
+	/**
+	 * 命中算法筛选后选中的门店
+	 */
+	
+	private String orderId;
+	private ArrayList<String> sku;
+	private String shopCode;
+	
+	public TargetShop() {
+		// TODO Auto-generated constructor stub
+		sku = new ArrayList<String>();
+	}
+	
+
+	
+	public String getShopCode() {
+		return shopCode;
+	}
+	
+	public void setShopCode(String shopCode) {
+		this.shopCode = shopCode;
+	}
+
+
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+
+
+	public ArrayList<String> getSku() {
+		return sku;
+	}
+
+
+
+	public void setSku(ArrayList<String> sku) {
+		this.sku = sku;
+	}
+
+}

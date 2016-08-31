@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+package com.ylmall.at.util;
+
+/**
+ * At.com.ylmall.at.util
+ * @author JeffGrubb
+ * @version 1.0
+ * 2016œ¬ŒÁ2:19:54
+ */
+public class StringUtil {
+
+	/**
+	 * 
+	 */
+	public StringUtil() {
+		// TODO Auto-generated constructor stub
+	}
+	public static int toInt(String s){
+		int a = -1;
+		try {
+		    a = Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			//–¥»’÷æ
+			
+		    e.printStackTrace();
+		}
+		
+		return a;
+	}
+
+}

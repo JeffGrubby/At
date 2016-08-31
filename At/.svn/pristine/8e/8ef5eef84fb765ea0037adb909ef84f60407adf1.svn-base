@@ -1,0 +1,45 @@
+package com.ylmall.at.model;
+/**
+ * @description TODO
+ * @author Administrator
+ * @date 2016年8月11日下午2:40:43
+ * @version
+ */
+public class StorkChange {
+
+	/**
+	 * 库存明细变化表
+	 */
+	private String shopCode;
+	private String sku;
+	private int change;
+	
+	public StorkChange() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getShopCode() {
+		return shopCode;
+	}
+
+	public void setShopCode(String shopCode) {
+		this.shopCode = shopCode;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public int getChange() {
+		return change;
+	}
+
+	public void setChange(int change) {
+		this.change = change;
+	}
+
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.StockChangeDao">
+<!-- 批量插入 -->
+<!--  	<insert id="insertStockChange" parameterType="com.ylmall.at.tobject.ResultShop">
+	    insert into stockchange(shopCode,sku,changes,time)
+		values
+		<foreach collection="childOrderList" item="childItem" separator=",">		
+			<foreach collection="childItem.infoList" item="Item" separator=",">		
+			(#{childItem.shopCode},#{Item.sku},#{Item.amount},#{childItem.time})
+			</foreach>
+		</foreach>
+	</insert> -->
+<!-- 单条插入 -->	
+	<insert id="insertOneStockChange" parameterType="com.ylmall.at.tobject.TargetShop">
+		insert into stockchange(shopCode,sku,changes,time)
+		values
+		<foreach collection="infoList" item="item" separator=",">
+			(#{shopCode},#{item.sku},#{item.amount},#{time})
+		</foreach>
+	</insert>
+</mapper>

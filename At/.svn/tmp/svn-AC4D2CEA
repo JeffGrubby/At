@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylmall.at.dao.OrderInfoDao">
+<!-- for test -->
+	<select id="selectSku" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select sku from orderinfo where amount=#{amount}
+	</select>
+	
+<!-- 插入订单对象 -->
+	<insert id="insertOrderInfo" parameterType="com.ylmall.at.tobject.Order">
+		insert into OrderInfo(orderId,sku,amount,shopCode)
+		values(#{orderId,jdbcType=VARCHAR},#{sku,jdbcType=VARCHAR},#{amount,jdbcType=INTEGER},
+		,#{shopCode,jdbcType=VARCHAR})
+	</insert>
+
+<!--插入拆单结果对象 -->
+	<insert id="insertResult" parameterType="com.ylmall.at.tobject.ResultShop">
+		insert into OrderInfo(orderId,sku,amount,shopCode)
+		values
+		<foreach collection="childOrderList" item="childItem">		
+			<foreach collection="childItem.childOrderList" item="Item" separator=",">
+			(#{childItem.orderId},#{Item.sku},#{Item.amount},#{childItem.shopCode})
+			</foreach>
+		</foreach>
+	</insert>
+<!-- 查询拒单门店号列表 -->
+	<select id="selectShopCode" parameterType="java.lang.String" resultType="java.lang.String">
+		 Call selectShop(#{orderId}) 
+	
+	</select>
+	
+
+</mapper>
