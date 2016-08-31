@@ -25,6 +25,7 @@ import com.ylmall.at.dao.OrderSplitDao;
 import com.ylmall.at.dao.OrderStateDao;
 import com.ylmall.at.dao.StockChangeDao;
 import com.ylmall.at.dao.StockDao;
+import com.ylmall.at.model.OrderInfo;
 import com.ylmall.at.model.SkuNeed;
 import com.ylmall.at.service.MatrixAlgorithmService;
 import com.ylmall.at.service.Impl.MatrixAlgorithmServiceImpl;
@@ -72,17 +73,16 @@ public class TestMyService {
 //	private DRPValidateService drp;
 	@Before
 	public void old(){
-		originOrderList.add(new SkuNeed("sku1",10));
-		originOrderList.add(new SkuNeed("sku2",50));
-		originOrderList.add(new SkuNeed("sku3",30));
+		List<OrderInfo> o = orderInfoDao.selectOrderInfo();
+		originOrderList.add(new SkuNeed(o.get(0).getSku(),o.get(0).getAmount()));
 		order = new Order();
-		order.setOrderId("A");
+		order.setOrderId(o.get(0).getOrderId());
 		order.setOrderState("ready");
 		order.setOriginOrderList(originOrderList);
 	}
 	
 	@Test  
-    public void test1() {
+    public void test() {
 		long before = System.currentTimeMillis();
 	
 		resultShop = new ResultShop();
@@ -104,12 +104,14 @@ public class TestMyService {
         logger.error(JSON.toJSONString(shopCode));
           
         //----------------------------------------------
-		if(0==shopCode.size()){
+		if(shopCode.toString().contains("null")||0==shopCode.size()){
 			// TODO sql查询符合订单条件的全部门店集合(首次拆单)
 			selectedShopList = stockDao.selectSkuShop(order);
 			// TODO 对sql查询结果判空
 			if(null==selectedShopList||0==selectedShopList.size()){
 				//输出日志
+				order.setOrderState("NoMatched");
+				orderStateDao.UpdateOrderState(order);
 				logger.error("NO SHOP SELECTED");
 				return ;
 			}
@@ -117,11 +119,12 @@ public class TestMyService {
 				System.out.println(s.getShopCode()+"  "+s.getSku());
 			// TODO 将订单对象插入订单状态，订单明细表
 			try{
-				orderStateDao.insertOrderState(order);}
-			catch(Exception e){
+				orderStateDao.insertOrderState(order);	
+				orderInfoDao.insertOrderInfo(order);
+			}catch(Exception e){
 				System.out.println("error during insert");	
 			}
-			orderInfoDao.insertOrderInfo(order);
+			
 			
 		}
 		else{
@@ -133,6 +136,8 @@ public class TestMyService {
 			// TODO 对sql查询结果判空
 			if(null==selectedShopList||0==selectedShopList.size()){
 				//输出日志
+				order.setOrderState("NoMatched");
+				orderStateDao.UpdateOrderState(order);
 				logger.error("NO SHOP SELECTED");
 				return ;
 			}
@@ -165,13 +170,13 @@ public class TestMyService {
 		{			
 			 targetShopList.get(i).setOrderId("order"+i);
 		}
-		List<String> sku = new ArrayList<String>();
+//		List<String> sku = new ArrayList<String>();
 		//对应门店不匹配的sku
 //	    sku.add("sku2");
 //		sku.add("sku1");
 		
-		ma.modify(targetShopList,sku);
-		targetShopList = ma.selectShop(ms.getMatrix(), ms.getReposRow(), ms.getReposColumn());
+//		ma.modify(targetShopList,sku);
+//		targetShopList = ma.selectShop(ms.getMatrix(), ms.getReposRow(), ms.getReposColumn());
 		
 
 		// TODO 将sql未查询到的sku补充到"NOT"子订单中
@@ -246,10 +251,12 @@ public class TestMyService {
 		
 		
 		try {
-			ExcelUtil.writeExcel("E:/test/结果信息.xls", resultShop);
+	
+			ExcelUtil.addExcel("E:/test/结果信息.xls", resultShop);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("error !!!");
+			System.out.println("check if file is using");
 		}
     }  
 }

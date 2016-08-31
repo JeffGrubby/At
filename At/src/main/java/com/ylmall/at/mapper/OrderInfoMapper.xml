@@ -25,5 +25,11 @@
 	<select id="selectShopCode" parameterType="java.lang.String" resultType="java.lang.String">
 		 Call selectShop(#{orderId}) 
 	</select>
-
+	
+<!-- 查询订单明细 -->	
+	<select id="selectOrderInfo" resultType="com.ylmall.at.model.OrderInfo">
+		select orderinfo.orderId,sku,amount,shopCode
+		from orderinfo,orderstate
+		where orderinfo.orderId=orderstate.orderId and orderState='1'
+	</select>
 </mapper>

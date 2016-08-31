@@ -11,7 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ylmall.at.service.ShopSelectService;
-import com.ylmall.at.tobject.Order;
+import com.ylmall.at.tobject.ResultShop;
+import com.ylmall.at.tobject.TargetShop;
 
 /**
  * At.com.ylmall.at.controller
@@ -28,8 +29,10 @@ public class TestController {
 	 @RequestMapping("/showTest")
 	 public String result(HttpServletRequest request,Model model){  
 	        String orderNo = request.getParameter("id");  
-	        
-	        
+	        ResultShop r = service.test(orderNo);
+	        model.addAttribute("result",r);
+	        for(TargetShop t:r.getChildOrderList())
+	        	model.addAttribute("child", t.getOrderId());
 	        return "showTest";  
 	    }  
 	

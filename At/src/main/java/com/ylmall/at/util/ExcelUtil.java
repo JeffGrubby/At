@@ -39,20 +39,19 @@ public class ExcelUtil {
 	 * @throws Exception
 	 * TODO
 	 */
-	public static void writeExcel(String path,ResultShop resultShop) throws Exception{	   
-	        WritableWorkbook workbook = Workbook.createWorkbook(new File(path)); 
-	        // TODO 获得第一个工作表对象
-	        WritableSheet sheet = workbook.createSheet("sheet1", 0);  
+	public static void addExcel(String path,ResultShop resultShop) throws Exception{  
+		Workbook book = Workbook.getWorkbook(new File(path));  
+        Sheet sh = book.getSheet(0);
+        
+    	int tempRow=sh.getRows();
+    	System.out.println(tempRow);
+        WritableWorkbook wbook = Workbook.createWorkbook(new File(path), book); // 根据book创建一个操作对象  
+        WritableSheet sheet = wbook.getSheet(0);// 得到一个工作对象  
+        	
+        	
 	        Label lab = null;
-	        // TODO 创建拆单结果Excel
-	        if(path.contains("结果")){
-	        	// TODO 添加第一行
-	        	for(int k=0;k<itemColumn.length;k++){
-	        		lab= new Label(k,0,itemColumn[k]);
-	        		sheet.addCell(lab);
-	        	}
-	        	// TODO 添加数据
-	        	int tempRow=1;
+        	// TODO 添加数据
+   
 	        	for(TargetShop t:resultShop.getChildOrderList()){
 	        		for(SkuNeed s:t.getInfoList()){
 	        			lab= new Label(0,tempRow,resultShop.getOriginOrderId());
@@ -68,10 +67,33 @@ public class ExcelUtil {
 	        			tempRow++;
 	        		}
 	        	}
+	        	
+	        	wbook.write();  
+	        	wbook.close();  
+
 	        }   
-	        workbook.write();  
-	        workbook.close();  
-	      
+	    
+	
+	/**
+	 * 
+	 * @param 创建文件路径
+	 * @throws 异常
+	 * TODO
+	 */
+	public static void createExcel(String path) throws Exception{
+		WritableWorkbook workbook = Workbook.createWorkbook(new File(path)); 
+        // TODO 获得第一个工作表对象
+        WritableSheet sheet = workbook.createSheet("sheet1", 0);  
+        Label lab = null;
+        // TODO 创建拆单结果Excel
+        
+        	// TODO 添加第一行
+        	for(int k=0;k<itemColumn.length;k++){
+        		lab= new Label(k,0,itemColumn[k]);
+        		sheet.addCell(lab);
+        	}
+        	   workbook.write();  
+   	        workbook.close();  
 	}
 	
 	

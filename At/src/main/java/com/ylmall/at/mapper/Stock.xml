@@ -39,15 +39,16 @@
 		<select id="reselectSkuShop" parameterType="java.util.Map"
 		 resultType="com.ylmall.at.tobject.SelectedShop" >
 			select sku,shopCode
-			from stock
-			where shopCode not in 
+			from stock,shop
+			where stock.shopCode=shop.SHOP_CODE and stock.shopCode not in 
 			<foreach collection="shopCode" item="shopItem" open="(" close=")" separator=",">
 				#{shopItem}
 			</foreach>
 			 and
 			<foreach collection="order" item="item" separator="OR"  >
 				sku =#{item.sku} and amount>=#{item.amount}
-			</foreach>	
+			</foreach>
+			ORDER BY LEVEL	
 		</select>	
 <!-- 插入库存信息 -->		
 		<insert id="insertStock" parameterType="com.ylmall.at.model.Stock">

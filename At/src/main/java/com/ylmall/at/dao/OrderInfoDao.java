@@ -27,5 +27,5 @@ public interface OrderInfoDao {
 	List<String> selectShopCode(String orderId);
 	
 	/** ≤È—Ø∂©µ•*/
-//	OrderInfo selectOne();
+	List<OrderInfo> selectOrderInfo();
 }

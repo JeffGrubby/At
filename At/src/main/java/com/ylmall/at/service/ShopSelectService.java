@@ -22,5 +22,6 @@ public interface ShopSelectService {
 	 */
 	ResultShop resultShop(Order order);
 	
+	ResultShop test(String orderNo);
 	
 }

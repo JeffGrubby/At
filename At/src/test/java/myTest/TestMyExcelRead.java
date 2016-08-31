@@ -17,7 +17,8 @@ import com.ylmall.at.dao.OrderInfoDao;
 import com.ylmall.at.dao.OrderStateDao;
 import com.ylmall.at.dao.ShopDao;
 import com.ylmall.at.dao.StockDao;
-import com.ylmall.at.model.SkuNeed;
+import com.ylmall.at.model.Shop;
+import com.ylmall.at.model.Stock;
 import com.ylmall.at.tobject.Order;
 import com.ylmall.at.util.ExcelUtil;
 
@@ -38,32 +39,36 @@ public class TestMyExcelRead {
 	private OrderInfoDao orderInfoDao;
 	@Resource
 	private OrderStateDao orderStateDao;
-	// TODO 读取库存表 写入数据库
-//	@Test
-//	public void readExcel(){
-//		try {
-//			@SuppressWarnings("unchecked")
-//			List<Stock> s = (List<Stock>) ExcelUtil.readExcel("E:/test/库存信息.xls");
-//			stockDao.insertStock(s);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}	
-//	}
 	
-//	@Test
-//	public void readExcel2(){
-//		try {
-//			@SuppressWarnings("unchecked")
-//			List<Shop> s = (List<Shop>) ExcelUtil.readExcel("E:/test/shop_222.xls");
-//			shopDao.insertShop(s);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}	
-//	}
-//	
+	// TODO 读取库存表 写入数据库
+	@Test
+	public void readExcel(){
+		try {
+			@SuppressWarnings("unchecked")
+			List<Stock> s = (List<Stock>) ExcelUtil.readExcel("E:/test/库存信息.xls");
+			stockDao.insertStock(s);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+	// TODO　读取门店表 写入数据库
+	@Test
+	public void readExcel2(){
+		try {
+			@SuppressWarnings("unchecked")
+			List<Shop> s = (List<Shop>) ExcelUtil.readExcel("E:/test/shop_222.xls");
+			shopDao.insertShop(s);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
 
+	
+	// TODO　读取订单主子表 写入数据库
 	@Test
 	public void readExcel3(){
 		try {
@@ -84,4 +89,15 @@ public class TestMyExcelRead {
 		}	
 	}
 	
+	// TODO 建Excel
+	@Test
+	public void create(){
+		try {
+			ExcelUtil.createExcel("E:/test/结果信息.xls");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
