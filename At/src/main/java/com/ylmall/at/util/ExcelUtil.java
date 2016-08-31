@@ -171,9 +171,7 @@ public class ExcelUtil {
         	 for(int j=1;j<sheet_one.getRows();j++){
         		 Cell c_one = sheet_one.getCell(0, j);
         		 if(c_two.getContents().equals(c_one.getContents())){
-        			 //订单号
-        			 c_one = sheet_one.getCell(1, j);
-        			 temp.setOrderId(c_one.getContents());
+        			
         			 //默认门店号为空
         			 temp.setShopCode(null);
         			 //订单状态
@@ -191,9 +189,9 @@ public class ExcelUtil {
             		
             		 
             		 while(i<(sheet_two.getRows()-1)){
-	            		 i++;
-	            		 if(sheet_two.getCell(9,i).getContents().equals(c_one.getContents())){
-	
+	            		 
+	            		 if(sheet_two.getCell(9,i+1).getContents().equals(c_one.getContents())){
+	            			 i++;
 	                		 c_two = sheet_two.getCell(1, i);
 	                		  sku = c_two.getContents();
 	                		 
@@ -205,7 +203,10 @@ public class ExcelUtil {
 	            		 else break;
             		  }
             	
-            		 
+            		 //订单号
+        			 c_one = sheet_one.getCell(1, j);
+        			 temp.setOrderId(c_one.getContents());
+        			 
             		 temp.setOriginOrderList(s);
             		 // TODO 添加到订单对象列表中
             		 orderList.add(temp);

@@ -68,15 +68,15 @@ public class TestMyExcelRead {
 	public void readExcel3(){
 		try {
 			List<Order> s = (List<Order>) ExcelUtil.readExcel("E:/test/53_order.xls","E:/test/53_item.xls");
-//			for(Order order:s){
-//				
-//				orderInfoDao.insertOrderInfo(order);
-//				orderStateDao.insertOrderState(order);
-//			}
 			for(Order order:s){
-				for(SkuNeed sk:order.getOriginOrderList())
-					System.out.println(order.getOrderId()+"  "+sk.getSku());
-				}
+				
+				orderInfoDao.insertOrderInfo(order);
+				orderStateDao.insertOrderState(order);
+			}
+//			for(Order order:s){
+//				for(SkuNeed sk:order.getOriginOrderList())
+//					System.out.println(order.getOrderId()+"  "+sk.getSku()+" "+order.getOrderState());
+//				}
 				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
